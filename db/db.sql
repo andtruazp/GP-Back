@@ -10,8 +10,6 @@ CREATE TABLE usuario (
     resetToken VARCHAR(255) DEFAULT NULL,
     resetExpires DATETIME DEFAULT NULL,
     estado_u INT DEFAULT 1,
-    #rol INT DEFAULT 3,
-    #FOREIGN KEY (rol) REFERENCES roles(id_r),
     FOREIGN KEY (estado_u) REFERENCES estado_u(id_e)
 );
 
@@ -19,24 +17,13 @@ CREATE TABLE estado_u (
     id_e INT PRIMARY KEY,
     estado VARCHAR(10)
 );
-INSERT INTO `db_tareas`.`estado_u`
+INSERT INTO estado_u
 (`id_e`,
 `estado`)
 VALUES
 (1, "Activo"),
 (2, "Inactivo");
 
-CREATE TABLE roles (
-    id_r INT PRIMARY KEY AUTO_INCREMENT,
-    rol VARCHAR(15)
-);
-
-INSERT INTO `db_tareas`.`roles`
-(`rol`)
-VALUES
-("admin"), ("adminproyecto"),("normal");
-
-SELECT * FROM roles;
 
 
 CREATE TABLE proyecto (
@@ -75,7 +62,7 @@ CREATE TABLE estado_act (
 id_e INT PRIMARY KEY,
 nom_e VARCHAR(15)
 );
-INSERT INTO `db_tareas`.`estado_act`
+INSERT INTO estado_act
 (`id_e`,
 `nom_e`)
 VALUES

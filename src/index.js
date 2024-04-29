@@ -23,4 +23,4 @@ app.use(estado)
 app.use(usuarios);
 
 app.listen(PORT)
-console.log('Server is running on port 3002')
+console.log('Server is running on port', PORT)
